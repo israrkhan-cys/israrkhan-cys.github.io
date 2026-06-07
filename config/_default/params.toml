@@ -1,0 +1,26 @@
+colorScheme = "ocean"
+defaultAppearance = "dark"
+autoSwitchAppearance = false
+
+[homepage]
+  layout = "background"
+  homepageImage = "img/bg.jpg"
+  showRecent = true
+  recentLimit = 3
+  showMoreLink = true
+  showMoreLinkDest = "posts"
+
+[article]
+  showDate = true
+  showReadingTime = true
+  showTableOfContents = true
+  showTags = true
+  showAuthor = true
+
+[list]
+  showSummary = true
+  groupByYear = false
+
+[footer]
+  showCopyright = true
+  showThemeAttribution = false
