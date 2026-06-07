@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux, C&#43;&#43; , Terminal on M Israr</title>
+    <link>http://localhost:1313/tags/linux-c&#43;&#43;--terminal/</link>
+    <description>Recent content in Linux, C&#43;&#43; , Terminal on M Israr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2026 Israr Khan</copyright>
+    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux-c++--terminal/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Simfs- Simulated Linux filesystem</title>
+      <link>http://localhost:1313/projects/simfs/</link>
+      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/simfs/</guid>
+      <description>Used different Data structure(e.g n-ary tree) concepts to simulate Linux filesystem. you get terminal to interact with it .</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/simfs/cover.png" />
+    </item>
+    
+  </channel>
+</rss>
