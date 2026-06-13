@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on M Israr</title>
-    <link>http://localhost:1313/projects/</link>
-    <description>Recent content in Projects on M Israr</description>
+    <title>Shell, C, System on M Israr</title>
+    <link>http://localhost:1313/tags/shell-c-system/</link>
+    <description>Recent content in Shell, C, System on M Israr</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2026 Muhammad Israr</copyright>
-    <lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/shell-c-system/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ZephShell- Unix shell built in C</title>
@@ -17,16 +17,6 @@
       <guid>http://localhost:1313/projects/zephshell/</guid>
       <description>A Unix shell built from scratch in C to understand how shells actually work under the hood, process creation, command parsing, and execution from first principles.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/zephshell/cover.jpeg" />
-    </item>
-    
-    <item>
-      <title>Simfs- Simulated Linux filesystem</title>
-      <link>http://localhost:1313/projects/simfs/</link>
-      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/projects/simfs/</guid>
-      <description>Used different Data structure(e.g n-ary tree) concepts to simulate Linux filesystem. you get terminal to interact with it .</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/simfs/cover.png" />
     </item>
     
   </channel>

@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2026 Muhammad Israr</copyright>
-    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Learning Git and Github Guide</title>
+      <link>http://localhost:1313/posts/learning-git/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/learning-git/</guid>
+      <description>A practical guide to Git and GitHub covering everything from basic commands to branching, pull requests, and undoing mistakes.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/learning-git/cover.jpeg" />
+    </item>
+    
+    <item>
+      <title>ZephShell- Unix shell built in C</title>
+      <link>http://localhost:1313/projects/zephshell/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/zephshell/</guid>
+      <description>A Unix shell built from scratch in C to understand how shells actually work under the hood, process creation, command parsing, and execution from first principles.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/zephshell/cover.jpeg" />
+    </item>
     
     <item>
       <title>Building a Network Intrusion Detection System</title>
