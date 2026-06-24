@@ -1,5 +1,8 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://israrkhan-cys.github.io/'
 locale = 'en-us'
 title = 'M Israr'
 
 theme = 'blowfish'
+
+[params]
+  defaultImage = "img/pp.jpeg"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Containers on M Israr</title>
+    <link>http://localhost:1313/tags/containers/</link>
+    <description>Recent content in Containers on M Israr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2026 Muhammad Israr</copyright>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/containers/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerizing a Flask App.A Beginner&#39;s Guide 🐳</title>
+      <link>http://localhost:1313/posts/learn-docker/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/learn-docker/</guid>
+      <description>Dockerizing a small Flask app — writing the Dockerfile, building the image, and running it as a container.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/learn-docker/cover.png" />
+    </item>
+    
+  </channel>
+</rss>

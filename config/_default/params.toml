@@ -2,11 +2,13 @@ colorScheme = "ocean"
 defaultAppearance = "dark"
 autoSwitchAppearance = false
 
+
+
 [homepage]
   layout = "background"
   homepageImage = "img/bg.jpg"
   showRecent = true
-  recentLimit = 3
+  recentLimit = 6
   showMoreLink = true
   showMoreLinkDest = "posts"
 
@@ -16,10 +18,13 @@ autoSwitchAppearance = false
   showTableOfContents = true
   showTags = true
   showAuthor = true
+  showTaxonomies = true  # 👈 NEW - shows categories/tags at bottom
+  #showEdit = false 
 
 [list]
   showSummary = true
   groupByYear = false
+   showTableOfContents = false
 
 [footer]
   showCopyright = true

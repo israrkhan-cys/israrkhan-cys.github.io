@@ -6,6 +6,6 @@
   links = [
     { github = "https://github.com/israrkhan-cys" },
     { email = "mailto:7israr.work@gmail.com" },
-    { linkden = "www.linkedin.com/in/muhammad-israr-01364a321" },
+    { linkedin = "https://www.linkedin.com/in/muhammad-israr-01364a321" },
     { instagram = "https://instagram.com/zephyr_.o2" }
   ]
