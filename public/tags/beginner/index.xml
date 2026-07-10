@@ -11,22 +11,22 @@
     
     <item>
       <title>Dockerizing a Flask App.A Beginner&#39;s Guide 🐳</title>
-      <link>http://localhost:1313/posts/learn-docker/</link>
+      <link>http://localhost:1313/blogs/learn-docker/</link>
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/learn-docker/</guid>
+      <guid>http://localhost:1313/blogs/learn-docker/</guid>
       <description>Dockerizing a small Flask app — writing the Dockerfile, building the image, and running it as a container.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/learn-docker/cover.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/learn-docker/cover.png" />
     </item>
     
     <item>
       <title>Learning Git and Github Guide</title>
-      <link>http://localhost:1313/posts/learning-git/</link>
+      <link>http://localhost:1313/blogs/learning-git/</link>
       <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/learning-git/</guid>
+      <guid>http://localhost:1313/blogs/learning-git/</guid>
       <description>A practical guide to Git and GitHub covering everything from basic commands to branching, pull requests, and undoing mistakes.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/learning-git/cover.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/learning-git/cover.jpeg" />
     </item>
     
   </channel>

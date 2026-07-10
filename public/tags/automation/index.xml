@@ -11,12 +11,12 @@
     
     <item>
       <title>Automating fresh linux setup</title>
-      <link>http://localhost:1313/posts/ubuntu-setup/</link>
+      <link>http://localhost:1313/blogs/ubuntu-setup/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/ubuntu-setup/</guid>
+      <guid>http://localhost:1313/blogs/ubuntu-setup/</guid>
       <description>Automating installation of all Applications and libraries on fresh linux</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/ubuntu-setup/cover.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/ubuntu-setup/cover.png" />
     </item>
     
   </channel>

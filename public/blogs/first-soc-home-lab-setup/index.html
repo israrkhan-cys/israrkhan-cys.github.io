@@ -1,0 +1,2247 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en-us">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Setting Wazuh in my SOC HomeLab &middot; M Israr</title>
+    <meta name="title" content="Setting Wazuh in my SOC HomeLab &middot; M Israr">
+  
+
+  
+  
+  
+  
+  
+    
+  
+    
+  
+    
+  
+  
+  
+    <meta name="keywords" content="wazuh,security Ops,networking,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/blogs/first-soc-home-lab-setup/">
+  
+  
+
+  
+  
+    <meta name="author" content="Muhammad Israr">
+  
+  
+    
+      
+        
+          <link href="https://github.com/israrkhan-cys" rel="me">
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <link href="https://www.linkedin.com/in/muhammad-israr-01364a321" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://instagram.com/zephyr_.o2" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/blogs/first-soc-home-lab-setup/">
+	<meta property="og:site_name" content="M Israr">
+	<meta property="og:title" content="Setting Wazuh in my SOC HomeLab">
+	<meta property="og:description" content="Introduction # In today’s cybersecurity landscape, understanding Security Information and Event Management (SIEM) tools is essential for anyone pursuing a career in security operations. This blog post documents my journey of building a complete Security Operations Center (SOC) home lab using Wazuh . an open-source SIEM platform.
+The goal was simple: Create a functional security monitoring environment that mimics enterprise setups, enabling hands-on learning with real security data and alerts.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blogs">
+		<meta property="article:published_time" content="2026-06-24T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-06-24T00:00:00+00:00">
+		<meta property="article:tag" content="Wazuh">
+		<meta property="article:tag" content="Security Ops">
+		<meta property="article:tag" content="Networking">
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Setting Wazuh in my SOC HomeLab">
+	<meta name="twitter:description" content="Introduction # In today’s cybersecurity landscape, understanding Security Information and Event Management (SIEM) tools is essential for anyone pursuing a career in security operations. This blog post documents my journey of building a complete Security Operations Center (SOC) home lab using Wazuh . an open-source SIEM platform.
+The goal was simple: Create a functional security monitoring environment that mimics enterprise setups, enabling hands-on learning with real security data and alerts.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.3887d5c0baee8b6b09cfb60a8c6fc75124dade8f9aa63f46482740ede1ca12184e206626399826660438864145090df47ca199d423cd6007378fc76c1203f81c.css"
+    integrity="sha512-OIfVwLrui2sJz7YKjG/HUSTa3o&#43;apj9GSCdA7eHKEhhOIGYmOZgmZgQ4hkFFCQ30fKGZ1CPNYAc3j8dsEgP4HA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.2e4a40a56a1c26644ff4dab6790eabc19d06af6171ea5b7ce1d008ad294537fedc437e8d1b2d28ae15b50ecb35defd0e442ddca3a21cb41b95435b3f03fd29fd.js"
+      integrity="sha512-LkpApWocJmRP9Nq2eQ6rwZ0Gr2Fx6lt84dAIrSlFN/7cQ36NGy0orhW1Dss13v0ORC3co6IctBuVQ1s/A/0p/Q=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Blogs",
+    "name": "Setting Wazuh in my SOC HomeLab",
+    "headline": "Setting Wazuh in my SOC HomeLab",
+    
+    "inLanguage": "en-us",
+    "url" : "http://localhost:1313/blogs/first-soc-home-lab-setup/",
+    "author" : {
+      "@type": "Person",
+      "name": "Muhammad Israr"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-06-24T00:00:00\u002b00:00",
+    "datePublished": "2026-06-24T00:00:00\u002b00:00",
+    
+    "dateModified": "2026-06-24T00:00:00\u002b00:00",
+    
+    "keywords": ["wazuh","security Ops","networking"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1714"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      M Israr
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/about/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="About"
+      title="About Me">
+      
+      
+        <span class="text-base font-medium break-normal">
+          About
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blogs/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Blogs"
+      title="Blogs">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Blogs
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/ctf-writeups/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="CTF writeups"
+      title="CTF writeups Page">
+      
+      
+        <span class="text-base font-medium break-normal">
+          CTF writeups
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/projects/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Projects"
+      title="Projects">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Projects
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/now/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Now"
+      title="What I&#39;m Doing Now">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Now
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/about/"
+        aria-label="About"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="About Me" class="text-2xl font-bold tracking-tight">
+          About
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blogs/"
+        aria-label="Blogs"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Blogs" class="text-2xl font-bold tracking-tight">
+          Blogs
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/ctf-writeups/"
+        aria-label="CTF writeups"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="CTF writeups Page" class="text-2xl font-bold tracking-tight">
+          CTF writeups
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/projects/"
+        aria-label="Projects"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Projects" class="text-2xl font-bold tracking-tight">
+          Projects
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/now/"
+        aria-label="Now"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="What I&#39;m Doing Now" class="text-2xl font-bold tracking-tight">
+          Now
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Setting Wazuh in my SOC HomeLab
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-06-24T00:00:00&#43;00:00">24 June 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1714 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
+    
+
+    
+    
+      <span class="ps-2"><span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Draft
+  </span>
+</span>
+</span>
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/wazuh/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Wazuh
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/security-ops/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Security Ops
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+            
+              
+            
+            
+              
+                <a class="relative mt-[0.5rem] me-2" href="/tags/networking/">
+                  <span class="flex cursor-pointer">
+  
+  
+  
+  
+    <span
+      class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+  
+    Networking
+  </span>
+</span>
+
+                </a>
+              
+            
+          
+        
+      
+    </div>
+  
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+      
+      
+        
+        
+        
+      
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full me-4"
+        width="96"
+        height="96"
+        alt="Muhammad Israr"
+        src="/img/pp_hu_361fc522d61fb324.jpeg"
+        data-zoom-src="/img/pp_hu_df7783153d8d16ed.jpeg">
+    
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        Author
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        Muhammad Israr
+      </div>
+    
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500 space-x-2">
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/israrkhan-cys"
+          
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class="email-link hover:text-primary-700 dark:hover:text-primary-400"
+          href="#"
+          
+            data-email="bWFpbHRvOjdpc3Jhci53b3JrQGdtYWlsLmNvbQ=="
+          
+          target="_blank"
+          aria-label="Email"
+          title="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.linkedin.com/in/muhammad-israr-01364a321"
+          
+          target="_blank"
+          aria-label="Linkedin"
+          title="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        
+        <a
+          class=" hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://instagram.com/zephyr_.o2"
+          
+          target="_blank"
+          aria-label="Instagram"
+          title="Instagram"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#hardware--software-requirements">Hardware &amp; Software Requirements</a>
+      <ul>
+        <li><a href="#my-setup">My Setup</a></li>
+        <li><a href="#software-stack">Software Stack</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-1-setting-up-ubuntu-server">Step 1: Setting Up Ubuntu Server</a>
+      <ul>
+        <li><a href="#downloading-the-iso">Downloading the ISO</a></li>
+        <li><a href="#creating-the-virtual-machine">Creating the Virtual Machine</a></li>
+        <li><a href="#installing-ubuntu-server">Installing Ubuntu Server</a></li>
+        <li><a href="#post-installation-setup">Post-Installation Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-2-installing-wazuh-siem">Step 2: Installing Wazuh SIEM</a>
+      <ul>
+        <li><a href="#the-all-in-one-installation">The All-in-One Installation</a></li>
+        <li><a href="#what-the-installer-does">What the Installer Does</a></li>
+        <li><a href="#installation-complete">Installation Complete</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-3-first-access--configuration">Step 3: First Access &amp; Configuration</a>
+      <ul>
+        <li><a href="#accessing-the-dashboard">Accessing the Dashboard</a></li>
+        <li><a href="#initial-dashboard-view">Initial Dashboard View</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-4-deploying-agents-on-endpoints">Step 4: Deploying Agents on Endpoints</a>
+      <ul>
+        <li><a href="#understanding-wazuh-architecture">Understanding Wazuh Architecture</a></li>
+        <li><a href="#adding-an-agent-through-the-dashboard">Adding an Agent Through the Dashboard</a></li>
+        <li><a href="#deploying-on-arch-linux-the-hard-way">Deploying on Arch Linux (The Hard Way)</a></li>
+        <li><a href="#registering-the-agent">Registering the Agent</a></li>
+        <li><a href="#starting-the-agent">Starting the Agent</a></li>
+        <li><a href="#verification">Verification</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-5-creating-custom-alerts">Step 5: Creating Custom Alerts</a>
+      <ul>
+        <li><a href="#why-custom-rules-matter">Why Custom Rules Matter</a></li>
+        <li><a href="#example-1-monitoring-suspicious-commands">Example 1: Monitoring Suspicious Commands</a></li>
+        <li><a href="#example-2-tracking-file-integrity">Example 2: Tracking File Integrity</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-6-monitoring--investigating-alerts">Step 6: Monitoring &amp; Investigating Alerts</a>
+      <ul>
+        <li><a href="#the-soc-analyst-workflow">The SOC Analyst Workflow</a></li>
+        <li><a href="#real-example-command-alert-investigation">Real Example: Command Alert Investigation</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting-guide">Troubleshooting Guide</a>
+      <ul>
+        <li><a href="#common-issues-and-solutions">Common Issues and Solutions</a></li>
+        <li><a href="#pro-tip-setting-a-static-ip">Pro Tip: Setting a Static IP</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-i-learned-1">What I Learned</a>
+      <ul>
+        <li><a href="#technical-skills">Technical Skills</a></li>
+        <li><a href="#security-concepts">Security Concepts</a></li>
+        <li><a href="#soft-skills">Soft Skills</a></li>
+      </ul>
+    </li>
+    <li><a href="#next-steps">Next Steps</a>
+      <ul>
+        <li><a href="#short-term-goals">Short Term Goals</a></li>
+        <li><a href="#long-term-goals">Long Term Goals</a></li>
+        <li><a href="#resources-for-further-learning">Resources for Further Learning</a></li>
+      </ul>
+    </li>
+    <li><a href="#final-thoughts">Final Thoughts</a>
+      <ul>
+        <li><a href="#key-takeaways">Key Takeaways</a></li>
+      </ul>
+    </li>
+    <li><a href="#connect-with-me">Connect With Me</a></li>
+    <li><a href="#appendix-useful-commands">Appendix: Useful Commands</a>
+      <ul>
+        <li><a href="#wazuh-server-commands">Wazuh Server Commands</a></li>
+        <li><a href="#wazuh-agent-commands-arch-linux">Wazuh Agent Commands (Arch Linux)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#hardware--software-requirements">Hardware &amp; Software Requirements</a>
+      <ul>
+        <li><a href="#my-setup">My Setup</a></li>
+        <li><a href="#software-stack">Software Stack</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-1-setting-up-ubuntu-server">Step 1: Setting Up Ubuntu Server</a>
+      <ul>
+        <li><a href="#downloading-the-iso">Downloading the ISO</a></li>
+        <li><a href="#creating-the-virtual-machine">Creating the Virtual Machine</a></li>
+        <li><a href="#installing-ubuntu-server">Installing Ubuntu Server</a></li>
+        <li><a href="#post-installation-setup">Post-Installation Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-2-installing-wazuh-siem">Step 2: Installing Wazuh SIEM</a>
+      <ul>
+        <li><a href="#the-all-in-one-installation">The All-in-One Installation</a></li>
+        <li><a href="#what-the-installer-does">What the Installer Does</a></li>
+        <li><a href="#installation-complete">Installation Complete</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-3-first-access--configuration">Step 3: First Access &amp; Configuration</a>
+      <ul>
+        <li><a href="#accessing-the-dashboard">Accessing the Dashboard</a></li>
+        <li><a href="#initial-dashboard-view">Initial Dashboard View</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-4-deploying-agents-on-endpoints">Step 4: Deploying Agents on Endpoints</a>
+      <ul>
+        <li><a href="#understanding-wazuh-architecture">Understanding Wazuh Architecture</a></li>
+        <li><a href="#adding-an-agent-through-the-dashboard">Adding an Agent Through the Dashboard</a></li>
+        <li><a href="#deploying-on-arch-linux-the-hard-way">Deploying on Arch Linux (The Hard Way)</a></li>
+        <li><a href="#registering-the-agent">Registering the Agent</a></li>
+        <li><a href="#starting-the-agent">Starting the Agent</a></li>
+        <li><a href="#verification">Verification</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-5-creating-custom-alerts">Step 5: Creating Custom Alerts</a>
+      <ul>
+        <li><a href="#why-custom-rules-matter">Why Custom Rules Matter</a></li>
+        <li><a href="#example-1-monitoring-suspicious-commands">Example 1: Monitoring Suspicious Commands</a></li>
+        <li><a href="#example-2-tracking-file-integrity">Example 2: Tracking File Integrity</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-6-monitoring--investigating-alerts">Step 6: Monitoring &amp; Investigating Alerts</a>
+      <ul>
+        <li><a href="#the-soc-analyst-workflow">The SOC Analyst Workflow</a></li>
+        <li><a href="#real-example-command-alert-investigation">Real Example: Command Alert Investigation</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting-guide">Troubleshooting Guide</a>
+      <ul>
+        <li><a href="#common-issues-and-solutions">Common Issues and Solutions</a></li>
+        <li><a href="#pro-tip-setting-a-static-ip">Pro Tip: Setting a Static IP</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-i-learned-1">What I Learned</a>
+      <ul>
+        <li><a href="#technical-skills">Technical Skills</a></li>
+        <li><a href="#security-concepts">Security Concepts</a></li>
+        <li><a href="#soft-skills">Soft Skills</a></li>
+      </ul>
+    </li>
+    <li><a href="#next-steps">Next Steps</a>
+      <ul>
+        <li><a href="#short-term-goals">Short Term Goals</a></li>
+        <li><a href="#long-term-goals">Long Term Goals</a></li>
+        <li><a href="#resources-for-further-learning">Resources for Further Learning</a></li>
+      </ul>
+    </li>
+    <li><a href="#final-thoughts">Final Thoughts</a>
+      <ul>
+        <li><a href="#key-takeaways">Key Takeaways</a></li>
+      </ul>
+    </li>
+    <li><a href="#connect-with-me">Connect With Me</a></li>
+    <li><a href="#appendix-useful-commands">Appendix: Useful Commands</a>
+      <ul>
+        <li><a href="#wazuh-server-commands">Wazuh Server Commands</a></li>
+        <li><a href="#wazuh-agent-commands-arch-linux">Wazuh Agent Commands (Arch Linux)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">Introduction
+    <div id="introduction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#introduction" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>In today&rsquo;s cybersecurity landscape, understanding Security Information and Event Management (SIEM) tools is essential for anyone pursuing a career in security operations. This blog post documents my journey of building a complete Security Operations Center (SOC) home lab using <strong>Wazuh</strong> . an open-source SIEM platform.</p>
+<p>The goal was simple: Create a functional security monitoring environment that mimics enterprise setups, enabling hands-on learning with real security data and alerts.</p>
+
+<h2 class="relative group">Hardware &amp; Software Requirements
+    <div id="hardware--software-requirements" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hardware--software-requirements" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">My Setup
+    <div id="my-setup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#my-setup" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Component</th>
+					<th>Specification</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Host Machine</strong></td>
+					<td>Arch Linux (Daily Driver)</td>
+			</tr>
+			<tr>
+					<td><strong>Virtualization</strong></td>
+					<td>VirtualBox</td>
+			</tr>
+			<tr>
+					<td><strong>SIEM Server VM</strong></td>
+					<td>Ubuntu Server 22.04 LTS</td>
+			</tr>
+			<tr>
+					<td><strong>Endpoint VM</strong></td>
+					<td>Arch Linux (Host Machine)</td>
+			</tr>
+			<tr>
+					<td><strong>RAM Allocated</strong></td>
+					<td>4GB (Server) + Host Resources</td>
+			</tr>
+			<tr>
+					<td><strong>Storage</strong></td>
+					<td>50GB (Server) + Host Storage</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 class="relative group">Software Stack
+    <div id="software-stack" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#software-stack" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>SIEM Platform:</strong> Wazuh 4.14.5</li>
+<li><strong>Operating System (Server):</strong> Ubuntu Server 22.04.4 LTS</li>
+<li><strong>Operating System (Endpoint):</strong> Arch Linux (with Wazuh Agent)</li>
+<li><strong>Dashboard:</strong> Wazuh Dashboard (Built-in)</li>
+<li><strong>Search Engine:</strong> Wazuh Indexer (Elasticsearch-based)</li>
+<li><strong>Database:</strong> Wazuh Manager (SQLite)</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Step 1: Setting Up Ubuntu Server
+    <div id="step-1-setting-up-ubuntu-server" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-1-setting-up-ubuntu-server" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Downloading the ISO
+    <div id="downloading-the-iso" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#downloading-the-iso" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>First, I downloaded the Ubuntu Server ISO from the official website:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Navigate to ubuntu.com/download/server</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Select Ubuntu Server 22.04.4 LTS or 24.04 LTS</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">Creating the Virtual Machine
+    <div id="creating-the-virtual-machine" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#creating-the-virtual-machine" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>
+<p><strong>Open VirtualBox</strong> and create a new VM:</p>
+<ul>
+<li><strong>Name:</strong> <code>Wazuh-Server</code></li>
+<li><strong>Type:</strong> Linux</li>
+<li><strong>Version:</strong> Ubuntu (64-bit)</li>
+<li><strong>Memory:</strong> 4096 MB (4GB minimum)</li>
+<li><strong>Storage:</strong> 50 GB dynamically allocated</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Configuration:</strong></p>
+<ul>
+<li><strong>Adapter 1:</strong> NAT (for internet access)</li>
+<li><strong>Adapter 2:</strong> Host-Only (for local access)</li>
+<li><em>Optional:</em> Set a static IP using <code>netplan</code> for consistent access</li>
+</ul>
+</li>
+</ol>
+
+<h3 class="relative group">Installing Ubuntu Server
+    <div id="installing-ubuntu-server" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#installing-ubuntu-server" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>During installation, I configured:</p>
+<ul>
+<li><strong>Username:</strong> <code>admin</code> (or your preferred username)</li>
+<li><strong>Hostname:</strong> <code>wazuh-server</code></li>
+<li><strong>SSH Server:</strong> Enabled (for remote management)</li>
+<li><strong>Minimal installation:</strong> Selected to reduce resource usage</li>
+</ul>
+
+<h3 class="relative group">Post-Installation Setup
+    <div id="post-installation-setup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#post-installation-setup" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Update the system</span>
+</span></span><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install essential tools</span>
+</span></span><span style="display:flex;"><span>sudo apt install curl wget net-tools -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check IP address for dashboard access</span>
+</span></span><span style="display:flex;"><span>ip a</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">Step 2: Installing Wazuh SIEM
+    <div id="step-2-installing-wazuh-siem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-2-installing-wazuh-siem" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">The All-in-One Installation
+    <div id="the-all-in-one-installation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-all-in-one-installation" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Wazuh provides an installation assistant that handles everything automatically. This was the most exciting part of the process!</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Download the installation script</span>
+</span></span><span style="display:flex;"><span>curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make it executable</span>
+</span></span><span style="display:flex;"><span>chmod +x wazuh-install.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run the all-in-one installation</span>
+</span></span><span style="display:flex;"><span>sudo ./wazuh-install.sh -a</span></span></code></pre></div></div>
+
+<h3 class="relative group">What the Installer Does
+    <div id="what-the-installer-does" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-the-installer-does" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The script automatically installs three main components:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Component</th>
+					<th>Function</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Wazuh Manager</strong></td>
+					<td>Processes security events and analyzes logs</td>
+			</tr>
+			<tr>
+					<td><strong>Wazuh Indexer</strong></td>
+					<td>Stores and indexes data (Elasticsearch-based)</td>
+			</tr>
+			<tr>
+					<td><strong>Wazuh Dashboard</strong></td>
+					<td>Provides the web interface for monitoring</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 class="relative group">Installation Complete
+    <div id="installation-complete" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#installation-complete" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>After about 5-10 minutes, I received the completion message:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>INFO: Installation finished.
+</span></span><span style="display:flex;"><span>INFO: Wazuh dashboard: https://192.168.1.100
+</span></span><span style="display:flex;"><span>INFO: Username: admin
+</span></span><span style="display:flex;"><span>INFO: Password: [AUTO-GENERATED-PASSWORD]</span></span></code></pre></div></div>
+<p>** Remember:** Always save the generated password or retrieve it later using:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">Step 3: First Access &amp; Configuration
+    <div id="step-3-first-access--configuration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-3-first-access--configuration" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Accessing the Dashboard
+    <div id="accessing-the-dashboard" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#accessing-the-dashboard" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>Open a web browser on the host machine</li>
+<li>Navigate to <code>https://YOUR_SERVER_IP</code></li>
+<li>Accept the security warning (self-signed SSL certificate is normal)</li>
+<li>Login with credentials saved from installation</li>
+</ol>
+
+<h3 class="relative group">Initial Dashboard View
+    <div id="initial-dashboard-view" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-dashboard-view" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The first login showed the Wazuh Overview, including:</p>
+<ul>
+<li>Security events in real-time</li>
+<li>Agent status</li>
+<li>System health</li>
+</ul>
+<p><strong>How It Felt:</strong> Seeing the dashboard for the first time was incredibly rewarding — it validated all the work put into setup!</p>
+<hr>
+
+<h2 class="relative group">Step 4: Deploying Agents on Endpoints
+    <div id="step-4-deploying-agents-on-endpoints" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-4-deploying-agents-on-endpoints" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Understanding Wazuh Architecture
+    <div id="understanding-wazuh-architecture" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#understanding-wazuh-architecture" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Before deploying agents, it&rsquo;s crucial to understand how Wazuh works:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Agents → Wazuh Manager → Wazuh Indexer → Dashboard
+</span></span><span style="display:flex;"><span>  ↑            ↑               ↑            ↑
+</span></span><span style="display:flex;"><span>Collects     Processes      Stores      Visualizes
+</span></span><span style="display:flex;"><span>Logs         Alerts         Data        Events</span></span></code></pre></div></div>
+
+<h3 class="relative group">Adding an Agent Through the Dashboard
+    <div id="adding-an-agent-through-the-dashboard" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#adding-an-agent-through-the-dashboard" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The easiest method is using the Wazuh dashboard:</p>
+<ol>
+<li>Navigate to <strong>Agents</strong> → <strong>Deploy New Agent</strong></li>
+<li>Fill in:
+<ul>
+<li><strong>Agent Name:</strong> <code>Home</code> (or any descriptive name)</li>
+<li><strong>Server Address:</strong> <code>YOUR_SERVER_IP</code></li>
+</ul>
+</li>
+<li>Copy the generated command</li>
+</ol>
+
+<h3 class="relative group">Deploying on Arch Linux (The Hard Way)
+    <div id="deploying-on-arch-linux-the-hard-way" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#deploying-on-arch-linux-the-hard-way" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Arch Linux isn&rsquo;t officially supported by Wazuh&rsquo;s DEB/RPM packages, so I used the AUR:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Install dependencies</span>
+</span></span><span style="display:flex;"><span>sudo pacman -S --needed autoconf automake base-devel brotli cmake curl expect fakeroot gawk gcc gnupg inetutils libsigsegv libtool make nodejs perl python sudo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build from AUR</span>
+</span></span><span style="display:flex;"><span>git clone https://github.com/mranv/wazuh-agent-archlinux
+</span></span><span style="display:flex;"><span>cd wazuh-agent-archlinux
+</span></span><span style="display:flex;"><span>export WAZUH_MANAGER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;YOUR_SERVER_IP&#34;</span>
+</span></span><span style="display:flex;"><span>export WAZUH_AGENT_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Home&#34;</span>
+</span></span><span style="display:flex;"><span>makepkg -si</span></span></code></pre></div></div>
+<p><strong>💡 Alternative:</strong> Use the AUR helper <code>yay</code> for a simpler install:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>WAZUH_MANAGER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;YOUR_SERVER_IP&#34;</span> WAZUH_AGENT_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Home&#34;</span> yay -S wazuh-agent</span></span></code></pre></div></div>
+
+<h3 class="relative group">Registering the Agent
+    <div id="registering-the-agent" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#registering-the-agent" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>After installation, register the agent with the server:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo /var/ossec/bin/manage_agents</span></span></code></pre></div></div>
+<p><strong>Registration Process:</strong></p>
+<ol>
+<li>Type <strong>A</strong> to add an agent</li>
+<li>Enter the agent name</li>
+<li>Enter the server IP</li>
+<li>Copy the generated key</li>
+<li>Type <strong>I</strong> to import the key</li>
+<li>Paste the key</li>
+<li>Type <strong>Q</strong> to quit</li>
+</ol>
+
+<h3 class="relative group">Starting the Agent
+    <div id="starting-the-agent" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#starting-the-agent" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl enable wazuh-agent
+</span></span><span style="display:flex;"><span>sudo systemctl start wazuh-agent</span></span></code></pre></div></div>
+
+<h3 class="relative group">Verification
+    <div id="verification" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#verification" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Check the agent status:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo journalctl -u wazuh-agent -f</span></span></code></pre></div></div>
+<p>Expected output:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>INFO: (4101): Connected to the server at YOUR_SERVER_IP:1514</span></span></code></pre></div></div>
+<p>Back in the dashboard, the agent appeared as <strong>Active</strong> — a truly satisfying moment!</p>
+<hr>
+
+<h2 class="relative group">Step 5: Creating Custom Alerts
+    <div id="step-5-creating-custom-alerts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-5-creating-custom-alerts" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Why Custom Rules Matter
+    <div id="why-custom-rules-matter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#why-custom-rules-matter" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>While Wazuh ships with thousands of rules, custom rules allow for:</p>
+<ul>
+<li>Organization-specific threat detection</li>
+<li>Insider threat monitoring</li>
+<li>Compliance requirements</li>
+<li>Early warning for specific software misuse</li>
+</ul>
+
+<h3 class="relative group">Example 1: Monitoring Suspicious Commands
+    <div id="example-1-monitoring-suspicious-commands" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#example-1-monitoring-suspicious-commands" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">Step 5a: Install auditd on Arch
+    <div id="step-5a-install-auditd-on-arch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-5a-install-auditd-on-arch" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S audit</span></span></code></pre></div></div>
+
+<h4 class="relative group">Step 5b: Add Audit Rules
+    <div id="step-5b-add-audit-rules" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-5b-add-audit-rules" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/audit/audit.rules</span></span></code></pre></div></div>
+<p>Add:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-a always,exit -F arch<span style="color:#f92672">=</span>b64 -S execve -k audit-wazuh-c</span></span></code></pre></div></div>
+<p>Restart services:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart auditd
+</span></span><span style="display:flex;"><span>sudo systemctl restart wazuh-agent</span></span></code></pre></div></div>
+
+<h4 class="relative group">Step 5c: Create a CDB List
+    <div id="step-5c-create-a-cdb-list" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-5c-create-a-cdb-list" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>On the Wazuh server:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /var/ossec/etc/lists/suspicious-programs</span></span></code></pre></div></div>
+<p>Add:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ncat:red
+</span></span><span style="display:flex;"><span>nc:red
+</span></span><span style="display:flex;"><span>tcpdump:orange
+</span></span><span style="display:flex;"><span>ping:yellow</span></span></code></pre></div></div>
+
+<h4 class="relative group">Step 5d: Create the Custom Rule
+    <div id="step-5d-create-the-custom-rule" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-5d-create-the-custom-rule" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /var/ossec/etc/rules/local_rules.xml</span></span></code></pre></div></div>
+<p>Add:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;group</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;audit&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;rule</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;100210&#34;</span> <span style="color:#a6e22e">level=</span><span style="color:#e6db74">&#34;12&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;if_sid&gt;</span>80792<span style="color:#f92672">&lt;/if_sid&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;list</span> <span style="color:#a6e22e">field=</span><span style="color:#e6db74">&#34;audit.command&#34;</span> <span style="color:#a6e22e">lookup=</span><span style="color:#e6db74">&#34;match_key_value&#34;</span> <span style="color:#a6e22e">check_value=</span><span style="color:#e6db74">&#34;red&#34;</span><span style="color:#f92672">&gt;</span>etc/lists/suspicious-programs<span style="color:#f92672">&lt;/list&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;description&gt;</span>Audit: Highly Suspicious Command executed: $(audit.exe)<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;group&gt;</span>audit_command,<span style="color:#f92672">&lt;/group&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/rule&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/group&gt;</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">Step 5e: Restart Wazuh
+    <div id="step-5e-restart-wazuh" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-5e-restart-wazuh" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart wazuh-manager</span></span></code></pre></div></div>
+
+<h4 class="relative group">Step 5f: Test It!
+    <div id="step-5f-test-it" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-5f-test-it" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>On Arch, run:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nc -v</span></span></code></pre></div></div>
+<p>Within moments, the dashboard displayed an alert with <strong>Level 12</strong> severity!</p>
+
+<h3 class="relative group">Example 2: Tracking File Integrity
+    <div id="example-2-tracking-file-integrity" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#example-2-tracking-file-integrity" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">What I Learned
+    <div id="what-i-learned" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-i-learned" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>A real alert I received:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Time: Jun 30, 2026 @ 17:33:27.529
+</span></span><span style="display:flex;"><span>Path: /etc/resolv.conf
+</span></span><span style="display:flex;"><span>Action: modified
+</span></span><span style="display:flex;"><span>Rule Description: Integrity checksum changed.
+</span></span><span style="display:flex;"><span>Rule Level: 7
+</span></span><span style="display:flex;"><span>Rule ID: 550</span></span></code></pre></div></div>
+<p><strong>Investigation Process:</strong></p>
+<ol>
+<li>❓ Why did it change?</li>
+<li>🔍 Checked if it was legitimate (DHCP renewal)</li>
+<li>✅ Verified DNS servers were normal</li>
+<li>📝 Documented as &ldquo;DHCP update - normal activity&rdquo;</li>
+</ol>
+<p>This was my first real &ldquo;SOC analyst&rdquo; moment — investigating an alert and determining if it was a threat!</p>
+<hr>
+
+<h2 class="relative group">Step 6: Monitoring &amp; Investigating Alerts
+    <div id="step-6-monitoring--investigating-alerts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-6-monitoring--investigating-alerts" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">The SOC Analyst Workflow
+    <div id="the-soc-analyst-workflow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-soc-analyst-workflow" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li><strong>Monitor Dashboard:</strong> Check for new alerts</li>
+<li><strong>Triage Alerts:</strong> Determine severity and validity</li>
+<li><strong>Investigate:</strong> Gather context and evidence</li>
+<li><strong>Decision:</strong> Classify as threat or false positive</li>
+<li><strong>Document:</strong> Record findings and actions</li>
+<li><strong>Respond:</strong> Take appropriate action</li>
+</ol>
+
+<h3 class="relative group">Real Example: Command Alert Investigation
+    <div id="real-example-command-alert-investigation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#real-example-command-alert-investigation" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌─────────────────────────────────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│ ALERT: Highly Suspicious Command Executed                  │
+</span></span><span style="display:flex;"><span>│ Host: Home (Arch Linux)                                    │
+</span></span><span style="display:flex;"><span>│ Command: nc -v                                             │
+</span></span><span style="display:flex;"><span>│ User: israr                                                │
+</span></span><span style="display:flex;"><span>│ Time: 2026-06-30 17:45:12                                  │
+</span></span><span style="display:flex;"><span>├─────────────────────────────────────────────────────────────┤
+</span></span><span style="display:flex;"><span>│ INVESTIGATION:                                             │
+</span></span><span style="display:flex;"><span>│ ✅ User is known employee                                  │
+</span></span><span style="display:flex;"><span>│ ✅ Command was a test (user admitted)                      │
+</span></span><span style="display:flex;"><span>│ ⚠️ Netcat is a legitimate tool but often abused           │
+</span></span><span style="display:flex;"><span>├─────────────────────────────────────────────────────────────┤
+</span></span><span style="display:flex;"><span>│ DECISION:                                                  │
+</span></span><span style="display:flex;"><span>│ 🟡 Informational - User testing tool                       │
+</span></span><span style="display:flex;"><span>│ 📌 Flag user for future monitoring                         │
+</span></span><span style="display:flex;"><span>│ ✅ No escalation needed                                    │
+</span></span><span style="display:flex;"><span>└─────────────────────────────────────────────────────────────┘</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">Troubleshooting Guide
+    <div id="troubleshooting-guide" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#troubleshooting-guide" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Common Issues and Solutions
+    <div id="common-issues-and-solutions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#common-issues-and-solutions" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Issue</th>
+					<th>Solution</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Agent won&rsquo;t connect</strong></td>
+					<td>Check firewall: <code>sudo ufw allow 1514/tcp</code></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Verify server IP in agent config</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Restart agent: <code>sudo systemctl restart wazuh-agent</code></td>
+			</tr>
+			<tr>
+					<td><strong>Dashboard inaccessible</strong></td>
+					<td>Check IP: <code>ip a</code></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Check services: <code>sudo systemctl status wazuh-*</code></td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Accept SSL certificate warning</td>
+			</tr>
+			<tr>
+					<td><strong>Password forgotten</strong></td>
+					<td><code>sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt</code></td>
+			</tr>
+			<tr>
+					<td><strong>IP changed after reboot</strong></td>
+					<td>Set static IP with netplan</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Or update agent config with new IP</td>
+			</tr>
+			<tr>
+					<td><strong>Arch dependencies fail</strong></td>
+					<td>Use AUR method instead of DEB/RPM</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>Install <code>yay</code> helper: <code>git clone https://aur.archlinux.org/yay.git &amp;&amp; cd yay &amp;&amp; makepkg -si</code></td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 class="relative group">Pro Tip: Setting a Static IP
+    <div id="pro-tip-setting-a-static-ip" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#pro-tip-setting-a-static-ip" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Avoid IP changes by configuring netplan on Ubuntu:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">network</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ethernets</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">eth0</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">dhcp4</span>: <span style="color:#66d9ef">no</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">addresses</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">192.168.1.100</span><span style="color:#ae81ff">/24</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">gateway4</span>: <span style="color:#ae81ff">192.168.1.1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">nameservers</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">addresses</span>: [<span style="color:#ae81ff">8.8.8.8</span>, <span style="color:#ae81ff">8.8.4.4</span>]</span></span></code></pre></div></div>
+<p>Apply:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo netplan apply</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">What I Learned
+    <div id="what-i-learned-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-i-learned-1" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Technical Skills
+    <div id="technical-skills" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#technical-skills" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>✅ Deploying and configuring SIEM in production-like environment</li>
+<li>✅ Understanding Linux system administration (Ubuntu &amp; Arch)</li>
+<li>✅ Managing network configurations (DHCP, static IPs)</li>
+<li>✅ Creating custom detection rules</li>
+<li>✅ Investigating security alerts</li>
+<li>✅ Troubleshooting distributed systems</li>
+</ul>
+
+<h3 class="relative group">Security Concepts
+    <div id="security-concepts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#security-concepts" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>✅ SIEM architecture (Manager, Indexer, Dashboard)</li>
+<li>✅ Agent-based monitoring</li>
+<li>✅ File Integrity Monitoring (FIM)</li>
+<li>✅ System call auditing (auditd)</li>
+<li>✅ Alert triage and investigation</li>
+<li>✅ Threat detection methodologies</li>
+</ul>
+
+<h3 class="relative group">Soft Skills
+    <div id="soft-skills" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#soft-skills" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>🔍 <strong>Attention to Detail:</strong> The difference between <code>-O</code> and <code>-0</code> in curl taught me the importance of precision</li>
+<li>🧩 <strong>Problem Solving:</strong> Working through dependency issues on Arch Linux</li>
+<li>📝 <strong>Documentation:</strong> This blog post itself!</li>
+<li>🎯 <strong>Persistence:</strong> Many failed attempts before success</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Next Steps
+    <div id="next-steps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#next-steps" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Short Term Goals
+    <div id="short-term-goals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#short-term-goals" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Add Windows agent to monitor corporate-like environment</li>
+<li><input disabled="" type="checkbox"> Set up email notifications for high-severity alerts</li>
+<li><input disabled="" type="checkbox"> Create custom dashboards for specific threat hunting</li>
+<li><input disabled="" type="checkbox"> Integrate with threat intelligence feeds</li>
+</ul>
+
+<h3 class="relative group">Long Term Goals
+    <div id="long-term-goals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#long-term-goals" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Deploy Wazuh in cluster mode (multiple servers)</li>
+<li><input disabled="" type="checkbox"> Integrate with TheHive for incident response</li>
+<li><input disabled="" type="checkbox"> Practice with simulated attacks using Kali Linux</li>
+<li><input disabled="" type="checkbox"> Prepare for SIEM-related certifications</li>
+</ul>
+
+<h3 class="relative group">Resources for Further Learning
+    <div id="resources-for-further-learning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#resources-for-further-learning" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>📚 <a href="https://documentation.wazuh.com/"  target="_blank" rel="noreferrer">Wazuh Official Documentation</a></li>
+<li>📚 <a href="https://www.sans.org/cyber-security-courses/network-monitoring-threat-detection/"  target="_blank" rel="noreferrer">SANS SEC503: Network Monitoring</a></li>
+<li>📚 <a href="https://www.amazon.com/Blue-Team-Handbook-Microsoft-Security/dp/1541018624"  target="_blank" rel="noreferrer">Blue Team Handbook</a></li>
+</ul>
+<hr>
+
+<h2 class="relative group">Final Thoughts
+    <div id="final-thoughts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#final-thoughts" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Building this SOC home lab has been one of the most rewarding learning experiences in my cybersecurity journey. From struggling with Arch Linux dependencies to seeing my first real alert in the dashboard, every step taught me something valuable.</p>
+
+<h3 class="relative group">Key Takeaways
+    <div id="key-takeaways" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#key-takeaways" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li><strong>Hands-on experience is irreplaceable</strong> — Reading about SIEM is different from building one</li>
+<li><strong>Embrace the struggle</strong> — Every error message is a learning opportunity</li>
+<li><strong>Document everything</strong> — Future you will thank present you</li>
+<li><strong>Start simple, then expand</strong> — A working lab is better than a perfect plan</li>
+<li><strong>Think like an attacker</strong> — Understanding how attacks work helps you defend against them</li>
+</ol>
+<hr>
+
+<h2 class="relative group">Connect With Me
+    <div id="connect-with-me" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#connect-with-me" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>I&rsquo;m continuously learning and documenting my cybersecurity journey. If you found this helpful:</p>
+<ul>
+<li>💼 Connect on <a href="https://www.linkedin.com"  target="_blank" rel="noreferrer">LinkedIn</a></li>
+<li>🐦 Follow me on <a href="https://twitter.com"  target="_blank" rel="noreferrer">Twitter</a></li>
+<li>📧 Email: [your-email@example.com]</li>
+</ul>
+<hr>
+<p><em>&ldquo;The best way to predict the future is to create it.&rdquo; — Peter Drucker</em></p>
+<hr>
+
+<h2 class="relative group">Appendix: Useful Commands
+    <div id="appendix-useful-commands" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#appendix-useful-commands" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Wazuh Server Commands
+    <div id="wazuh-server-commands" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#wazuh-server-commands" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check all Wazuh services</span>
+</span></span><span style="display:flex;"><span>sudo systemctl status wazuh-manager wazuh-indexer wazuh-dashboard
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Restart Wazuh Manager</span>
+</span></span><span style="display:flex;"><span>sudo systemctl restart wazuh-manager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># View Wazuh logs</span>
+</span></span><span style="display:flex;"><span>sudo tail -f /var/ossec/logs/ossec.log
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># View security alerts</span>
+</span></span><span style="display:flex;"><span>sudo tail -f /var/ossec/logs/alerts/alerts.json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Retrieve dashboard password</span>
+</span></span><span style="display:flex;"><span>sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt</span></span></code></pre></div></div>
+
+<h3 class="relative group">Wazuh Agent Commands (Arch Linux)
+    <div id="wazuh-agent-commands-arch-linux" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#wazuh-agent-commands-arch-linux" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Start agent</span>
+</span></span><span style="display:flex;"><span>sudo systemctl start wazuh-agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># View agent logs</span>
+</span></span><span style="display:flex;"><span>sudo journalctl -u wazuh-agent -f
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Manage agent registration</span>
+</span></span><span style="display:flex;"><span>sudo /var/ossec/bin/manage_agents
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test configuration</span>
+</span></span><span style="display:flex;"><span>sudo /var/ossec/bin/wazuh-logtest</span></span></code></pre></div></div>
+<hr>
+<p><em>Published: July 2026</em>
+<em>Last Updated: July 2026</em></p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/blogs/learning-git/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Learning Git and Github Guide
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-06-13T00:00:00&#43;00:00">13 June 2026</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/blogs/learn-docker/">
+              <span class="leading-6">
+                Dockerizing a Flask App.A Beginner's Guide 🐳&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-06-24T00:00:00&#43;00:00">24 June 2026</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          Muhammad Israr
+      </p>
+    
+
+    
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

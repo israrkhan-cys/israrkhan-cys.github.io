@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on M Israr</title>
+    <link>http://localhost:1313/tags/networking/</link>
+    <description>Recent content in Networking on M Israr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2026 Muhammad Israr</copyright>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Setting Wazuh in my SOC HomeLab</title>
+      <link>http://localhost:1313/blogs/wazuh-setup/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/wazuh-setup/</guid>
+      <description>Setting up wazuh siem tool in my SOC home Lab</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/wazuh-setup/cover.jpeg" />
+    </item>
+    
+  </channel>
+</rss>

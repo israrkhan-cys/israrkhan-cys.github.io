@@ -11,10 +11,10 @@ showReadingTime: false
 -  Learning Docker & containerization also kubernetes
 -  Learning kernel development from LFX
 -  Practicing CTF challenges on picoCTF
-- Getting my Google cybersecurity certification
-- building a Homelab 
-- Practicing Networking
+-  Getting my Google cybersecurity certification
+-  building a Homelab 
+-  Practicing Networking
 -  Writing tech blog posts
 
-*Last updated: June 2026*
+*Last updated: July 2026*
 

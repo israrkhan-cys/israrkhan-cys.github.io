@@ -4,9 +4,16 @@
   weight = 10
 
 [[main]]
-  name = "Posts"
-  pageRef = "posts"
+  name = "Blogs"
+  pageRef = "blogs"
   weight = 20
+
+
+[[main]]
+  name = "CTF writeups"
+  pageRef = "CTF writeups"
+  weight = 20
+
 
 [[main]]
   name = "Projects"
@@ -17,3 +24,4 @@
   name = "Now"
   pageRef = "now"
   weight = 40  
+

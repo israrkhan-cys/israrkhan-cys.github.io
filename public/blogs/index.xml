@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on M Israr</title>
+    <link>http://localhost:1313/blogs/</link>
+    <description>Recent content in Blogs on M Israr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2026 Muhammad Israr</copyright>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerizing a Flask App.A Beginner&#39;s Guide 🐳</title>
+      <link>http://localhost:1313/blogs/learn-docker/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/learn-docker/</guid>
+      <description>Dockerizing a small Flask app — writing the Dockerfile, building the image, and running it as a container.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/learn-docker/cover.png" />
+    </item>
+    
+    <item>
+      <title>Setting Wazuh in my SOC HomeLab</title>
+      <link>http://localhost:1313/blogs/wazuh-setup/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/wazuh-setup/</guid>
+      <description>Setting up wazuh siem tool in my SOC home Lab</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/wazuh-setup/cover.jpeg" />
+    </item>
+    
+    <item>
+      <title>Learning Git and Github Guide</title>
+      <link>http://localhost:1313/blogs/learning-git/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/learning-git/</guid>
+      <description>A practical guide to Git and GitHub covering everything from basic commands to branching, pull requests, and undoing mistakes.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/learning-git/cover.jpeg" />
+    </item>
+    
+    <item>
+      <title>Building a Network Intrusion Detection System</title>
+      <link>http://localhost:1313/blogs/nids/</link>
+      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/nids/</guid>
+      <description>ML-based NIDS using scikit-learn classifiers, K-Means with PCA, and Genetic Algorithm feature selection.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/nids/cover.png" />
+    </item>
+    
+    <item>
+      <title>Automating fresh linux setup</title>
+      <link>http://localhost:1313/blogs/ubuntu-setup/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/ubuntu-setup/</guid>
+      <description>Automating installation of all Applications and libraries on fresh linux</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/ubuntu-setup/cover.png" />
+    </item>
+    
+  </channel>
+</rss>
