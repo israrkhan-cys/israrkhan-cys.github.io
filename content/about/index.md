@@ -9,15 +9,18 @@ programming, and Linux setups. i also have have good knowledge of git and github
 
 ## Skills
 
-- **Languages:** C, C++, Python, Bash, SQL
+- **Languages:** C, C++, Python, Bash, SQL.
 - **Systems:** Linux (Arch), POSIX APIs, Shell scripting
 - **Security:** Network analysis, vulnerability research
-- **Tools:** Git, GDB, Wireshark
+- **Tools:** Git, GDB, Wireshark, Nmap, wazuh
 
 ## Certifications
 
+- Google Cybersecurity professional Certificate
 - NetCad- Introduction to cybersecurity
 - Google- Introduction to git and github
+- Intoduction to linux kernel development ()
+
 
 
 ## Education

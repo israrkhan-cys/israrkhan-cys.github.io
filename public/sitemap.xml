@@ -19,6 +19,10 @@
     <lastmod>2026-06-24T00:00:00+00:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/blogs/kernel-compilation/</loc>
+    <lastmod>2026-06-24T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/blogs/learn-docker/</loc>
     <lastmod>2026-06-24T00:00:00+00:00</lastmod>
   </url>
@@ -53,9 +57,6 @@
   <url>
     <loc>http://localhost:1313/blogs/ubuntu-setup/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/blogs/dhcp-server-setup/</loc>
   </url>
   <url>
     <loc>http://localhost:1313/about/</loc>
