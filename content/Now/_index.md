@@ -7,14 +7,12 @@ showReadingTime: false
 ---
 ## Currently
 
--  Studying Computer Science in my 2nd year 
--  Learning Docker & containerization also kubernetes
--  Learning kernel development from LFX
+-  Studying Computer Science in my 3rdd year 
+-  Learning and Practicing Computer networks
+-  Learning kernel development workflow and starting early contributions.
 -  Practicing CTF challenges on picoCTF
--  Getting my Google cybersecurity certification
 -  building a Homelab 
--  Practicing Networking
 -  Writing tech blog posts
 
-*Last updated: July 2026*
+*Last updated: August 2026*
 
