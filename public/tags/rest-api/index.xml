@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>REST API on M Israr</title>
+    <link>http://localhost:1313/tags/rest-api/</link>
+    <description>Recent content in REST API on M Israr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2026 Muhammad Israr</copyright>
+    <lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/rest-api/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Research Opportunity Portal: FastAPI &#43; MySQL Web App</title>
+      <link>http://localhost:1313/projects/research-opportunity-portal/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/research-opportunity-portal/</guid>
+      <description>A full-stack web app where faculty post and manage research opportunities in one place, with a FastAPI REST API, a MySQL/MariaDB database, Pydantic validation and a plain JavaScript frontend.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/research-opportunity-portal/cover.png" />
+    </item>
+    
+  </channel>
+</rss>

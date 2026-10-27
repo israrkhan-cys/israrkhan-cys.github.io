@@ -7,7 +7,177 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2026 Muhammad Israr</copyright>
-    <lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Beginner</title>
+      <link>http://localhost:1313/tags/beginner/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/beginner/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>FastAPI</title>
+      <link>http://localhost:1313/tags/fastapi/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/fastapi/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/tags/javascript/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/javascript/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Kernel</title>
+      <link>http://localhost:1313/tags/kernel/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/kernel/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>http://localhost:1313/tags/mysql/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/mysql/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Open Source</title>
+      <link>http://localhost:1313/tags/open-source/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/open-source/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>REST API</title>
+      <link>http://localhost:1313/tags/rest-api/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/rest-api/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SQLAlchemy</title>
+      <link>http://localhost:1313/tags/sqlalchemy/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/sqlalchemy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Staging</title>
+      <link>http://localhost:1313/tags/staging/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/staging/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>AUR</title>
+      <link>http://localhost:1313/tags/aur/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/aur/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hyprland</title>
+      <link>http://localhost:1313/tags/hyprland/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/hyprland/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>QML</title>
+      <link>http://localhost:1313/tags/qml/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/qml/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Qt6</title>
+      <link>http://localhost:1313/tags/qt6/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/qt6/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Wayland</title>
+      <link>http://localhost:1313/tags/wayland/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/wayland/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Binary Exploitation</title>
@@ -50,16 +220,6 @@
     </item>
     
     <item>
-      <title>Beginner</title>
-      <link>http://localhost:1313/tags/beginner/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/beginner/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Containers</title>
       <link>http://localhost:1313/tags/containers/</link>
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
@@ -85,26 +245,6 @@
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/flask/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Kernel</title>
-      <link>http://localhost:1313/tags/kernel/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/kernel/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
       
     </item>
@@ -225,16 +365,6 @@
       <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/machine-learning/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
-      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
       
     </item>

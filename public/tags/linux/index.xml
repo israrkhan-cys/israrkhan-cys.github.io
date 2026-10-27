@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2026 Muhammad Israr</copyright>
-    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My First Three Linux Kernel Patches: One Accepted, One Duplicate, One Real Bug</title>
+      <link>http://localhost:1313/blogs/kernel_contrib/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/kernel_contrib/</guid>
+      <description>What I learned from sending three patches to the Linux staging tree: a duplicate fix, a review that exposed a real concurrency bug, and a first patch accepted into staging-next.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/kernel_contrib/cover.png" />
+    </item>
     
     <item>
       <title>Compiling the Linux Kernel from Source on Ubuntu</title>

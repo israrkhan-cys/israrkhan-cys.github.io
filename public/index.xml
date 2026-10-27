@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2026 Muhammad Israr</copyright>
-    <lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My First Three Linux Kernel Patches: One Accepted, One Duplicate, One Real Bug</title>
+      <link>http://localhost:1313/blogs/kernel_contrib/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/kernel_contrib/</guid>
+      <description>What I learned from sending three patches to the Linux staging tree: a duplicate fix, a review that exposed a real concurrency bug, and a first patch accepted into staging-next.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/kernel_contrib/cover.png" />
+    </item>
+    
+    <item>
+      <title>Research Opportunity Portal: FastAPI &#43; MySQL Web App</title>
+      <link>http://localhost:1313/projects/research-opportunity-portal/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/research-opportunity-portal/</guid>
+      <description>A full-stack web app where faculty post and manage research opportunities in one place, with a FastAPI REST API, a MySQL/MariaDB database, Pydantic validation and a plain JavaScript frontend.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/research-opportunity-portal/cover.png" />
+    </item>
+    
+    <item>
+      <title>radiq: Radial App Launcher for Hyprland</title>
+      <link>http://localhost:1313/projects/radiq/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/radiq/</guid>
+      <description>A Wayland-native, game-inspired radial application launcher for Arch Linux and Hyprland, built with Qt 6, QML and C++20 and published on the AUR.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/radiq/cover.png" />
+    </item>
     
     <item>
       <title>picoCTF: Flag Shop</title>
@@ -105,7 +135,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m a 4th semester Computer Science student at FAST Nuces. Focused on cybersecurity, systems&#xA;programming, and Linux setups. i also have have good knowledge of git and github, i am also exploring how the development of linux kernel works and its development and learning how to contribute to open source projects.Also i am developing some fun projects along the way.&lt;/p&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;Skills&#xA;    &lt;div id=&#34;skills&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#skills&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Languages:&lt;/strong&gt; C, C++, Python, Bash, SQL.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Systems:&lt;/strong&gt; Linux (Arch), POSIX APIs, Shell scripting&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Security:&lt;/strong&gt; Network analysis, vulnerability research&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt; Git, GDB, Wireshark, Nmap, wazuh&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;Certifications&#xA;    &lt;div id=&#34;certifications&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#certifications&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Google Cybersecurity professional Certificate&lt;/li&gt;&#xA;&lt;li&gt;NetCad- Introduction to cybersecurity&lt;/li&gt;&#xA;&lt;li&gt;Google- Introduction to git and github&lt;/li&gt;&#xA;&lt;li&gt;Intoduction to linux kernel development ()&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;Education&#xA;    &lt;div id=&#34;education&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#education&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;BS Computer Science&lt;/strong&gt;&#xA;FAST National University, Peshawar — 2024-2028&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;m a 5th semester Computer Science student at FAST NUCES, Peshawar. I focus on cybersecurity, systems programming and Linux. I&amp;rsquo;m learning how Linux kernel development works by sending patches to the mailing list, and I build tools along the way, including &lt;a href=&#34;http://localhost:1313/projects/radiq/&#34; &gt;radiq&lt;/a&gt;, a radial app launcher that&amp;rsquo;s published on the AUR.&lt;/p&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;Experience&#xA;    &lt;div id=&#34;experience&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#experience&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Cybersecurity Trainee, IPICH&lt;/strong&gt;&#xA;Completed a one-month intensive national cybersecurity training program (Cybersecurity &amp;amp; Digital Defense track). Covered web penetration testing, Kali Linux tools, HTTP methods and practical offensive security techniques.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;CATCH_VR Summer School, GIK Institute&lt;/strong&gt;&#xA;Hands-on IoT lab sessions, AR/VR and digital twins. With a team of five I built &lt;em&gt;GIKIreasure Hunt&lt;/em&gt;, a location-based AR treasure hunt on the GIKI campus using Unity, AR Foundation and GPS.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
       
     </item>
     

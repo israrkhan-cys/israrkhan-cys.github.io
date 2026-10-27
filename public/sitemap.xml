@@ -3,20 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/ctf-writeups/</loc>
-    <lastmod>2026-07-06T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/blogs/</loc>
+    <lastmod>2026-10-25T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2026-10-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blogs/kernel_contrib/</loc>
+    <lastmod>2026-10-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/projects/</loc>
+    <lastmod>2026-10-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/projects/research-opportunity-portal/</loc>
+    <lastmod>2026-10-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/projects/radiq/</loc>
+    <lastmod>2026-08-26T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ctf-writeups/</loc>
     <lastmod>2026-07-06T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/ctf-writeups/flag_shop/</loc>
     <lastmod>2026-07-06T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/blogs/</loc>
-    <lastmod>2026-06-24T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/blogs/kernel-compilation/</loc>
@@ -37,10 +53,6 @@
   <url>
     <loc>http://localhost:1313/blogs/learning-git/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/projects/</loc>
-    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/projects/zephshell/</loc>

@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2026 Muhammad Israr</copyright>
-    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Research Opportunity Portal: FastAPI &#43; MySQL Web App</title>
+      <link>http://localhost:1313/projects/research-opportunity-portal/</link>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/research-opportunity-portal/</guid>
+      <description>A full-stack web app where faculty post and manage research opportunities in one place, with a FastAPI REST API, a MySQL/MariaDB database, Pydantic validation and a plain JavaScript frontend.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/research-opportunity-portal/cover.png" />
+    </item>
     
     <item>
       <title>Building a Network Intrusion Detection System</title>

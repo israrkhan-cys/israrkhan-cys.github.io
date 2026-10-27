@@ -1,12 +1,13 @@
 [params.author]
   name = "Muhammad Israr"
   image = "img/pp.jpeg"
-  headline = "CS Student | Cybersecurity | Systems Programming 🤓 "
+  headline = "CS Student | Cybersecurity | Systems Programming "
  
-  links = [
-    { github = "https://github.com/israrkhan-cys" },
-    { email = "mailto:7israr.work@gmail.com" },
-    { linkedin = "https://www.linkedin.com/in/muhammad-israr-01364a321" },
-    { instagram = "https://instagram.com/zephyr_.o2" }
-  ]
+links = [
+  { github = "https://github.com/israrkhan-cys" },
+  { email = "mailto:7israr.work@gmail.com" },
+  { linkedin = "https://www.linkedin.com/in/muhammad-israr-01364a321" },
+  { instagram = "https://instagram.com/zephyr_.o2" }
+]
+
 
